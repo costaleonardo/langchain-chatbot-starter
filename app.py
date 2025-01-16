@@ -66,4 +66,5 @@ iface = gr.Interface(fn=chatbot_interface, inputs="text", outputs="text", title=
 
 # Run the Gradio app
 if __name__ == "__main__":
-    iface.launch()
+    # Use Heroku's port for deployment
+    iface.launch(server_port=int(os.environ.get("PORT", 7860)), server_name="0.0.0.0")
